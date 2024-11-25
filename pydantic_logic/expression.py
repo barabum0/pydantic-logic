@@ -17,16 +17,13 @@ class Operator(Enum):
 class LogicExpression(BaseModel):
     key: str
     operator: Operator
-    value: str | int | float | bool
+    value: str | int | float | bool | None
 
     @classmethod
     def b(cls, key: str, operator: Operator, value: str | int | float | bool) -> Self:
         return cls(key=key, operator=operator, value=value)
 
     def evaluate(self, data: dict[str, Any]) -> bool:
-        if self.key not in data:
-            return False
-
         value_to_compare = data.get(self.key)
         try:
             match self.operator:
