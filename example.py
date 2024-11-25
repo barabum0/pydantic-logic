@@ -1,3 +1,5 @@
+import json
+
 from pydantic_logic import Logic, LogicExpression
 from pydantic_logic.expression import Operator
 
@@ -25,3 +27,5 @@ logic = Logic(
     ]
 )
 assert logic.evaluate(data)
+
+print(json.dumps(logic.model_dump(mode="json"), indent=2, ensure_ascii=False))
