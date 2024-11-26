@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing_extensions import Self
 
 
-class Operator(Enum):
+class Operator(str, Enum):
     EQ = "eq"
     NE = "ne"
     GT = "gt"
@@ -14,7 +14,7 @@ class Operator(Enum):
     LE = "le"
 
 
-class ExpressionType(Enum):
+class ExpressionType(str, Enum):
     COMPARISON = "comparison"
     # TODO: logic(any, all), and maybe more..
 
