@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pydantic-logic"
-description = "Description"
-version = "1.0.1"
+description = "Build complex rules, operate them with Pydantic, and execute them in Python"
+version = "1.0.2"
 authors = ["Roman Poltorabatko <r.m.poltorabatko@gmail.com>"]
 license = "MIT"
 readme = "README.md"
