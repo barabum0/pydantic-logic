@@ -25,6 +25,28 @@ pip install pydantic-logic
 ```
 
 ## Examples
+
+### True expression
+```python
+from pydantic_logic import Logic, LogicExpression, Operator
+
+data = {
+    "Phone number": "123123123",
+    "some_value": True,
+    "some_other_value": 1,
+}
+
+logic = Logic(
+    expressions=[
+        LogicExpression.b("Phone number", Operator.NE, "adasdasdasd"),
+        LogicExpression.b("some_value", Operator.EQ, True),
+        LogicExpression.b("some_other_value", Operator.GT, 0),
+    ]
+)
+assert logic.evaluate(data)
+```
+
+### False expression
 ```python
 from pydantic_logic import Logic, LogicExpression, Operator
 
@@ -44,8 +66,10 @@ logic = Logic(
 assert not logic.evaluate(data)
 ```
 
+### Empty expression with default result
+Suitable if the expressions are set by the end users, not the code
 ```python
-from pydantic_logic import Logic, LogicExpression, Operator
+from pydantic_logic import Logic
 
 data = {
     "Phone number": "123123123",
@@ -54,11 +78,7 @@ data = {
 }
 
 logic = Logic(
-    expressions=[
-        LogicExpression.b("Phone number", Operator.NE, "adasdasdasd"),
-        LogicExpression.b("some_value", Operator.EQ, True),
-        LogicExpression.b("some_other_value", Operator.GT, 0),
-    ]
+    expressions=[]
 )
-assert logic.evaluate(data)
+assert logic.evaluate(data, default_if_empty=True)
 ```
