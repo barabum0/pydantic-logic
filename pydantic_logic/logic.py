@@ -12,3 +12,6 @@ class Logic(BaseModel):
         if len(self.expressions) == 0:
             return default_if_empty
         return all(expr.evaluate(data) for expr in self.expressions)
+
+    def get_wrong_expressions(self, data: dict[str, Any]) -> list[LogicExpression]:
+        return [expr for expr in self.expressions if not expr.evaluate(data)]

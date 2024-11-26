@@ -82,3 +82,23 @@ logic = Logic(
 )
 assert logic.evaluate(data, default_if_empty=True)
 ```
+
+### Get wrong expressions
+```python
+from pydantic_logic import Logic, LogicExpression, Operator
+
+data = {
+    "Phone number": "123123123",
+    "some_value": True,
+    "some_other_value": 1,
+}
+
+logic = Logic(
+    expressions=[
+        LogicExpression.b("Phone number", Operator.EQ, "123123123"),
+        LogicExpression.b("some_value", Operator.NE, False),
+        LogicExpression.b("some_other_value", Operator.LT, 1),
+    ]
+)
+logic.get_wrong_expressions(data)  # second and third
+```
