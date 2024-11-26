@@ -1,7 +1,6 @@
 import json
 
-from pydantic_logic import Logic, LogicExpression
-from pydantic_logic.expression import Operator
+from pydantic_logic import Logic, LogicExpression, Operator
 
 data = {
     "Phone number": "123123123",
