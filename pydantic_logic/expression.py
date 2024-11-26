@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel
 from typing_extensions import Self
@@ -14,7 +14,13 @@ class Operator(Enum):
     LE = "le"
 
 
+class ExpressionType(Enum):
+    COMPARISON = "comparison"
+    # TODO: logic(any, all), and maybe more..
+
+
 class LogicExpression(BaseModel):
+    type: Literal[ExpressionType.COMPARISON] = ExpressionType.COMPARISON
     key: str
     operator: Operator
     value: str | int | float | bool | None
