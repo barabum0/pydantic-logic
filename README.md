@@ -3,7 +3,7 @@
   <p>
     <img alt="License: MIT" src="https://img.shields.io/github/license/barabum0/pydantic-logic">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/barabum0/pydantic-logic">
-    <a href="https://pypi.org/project/promptxml">
+    <a href="https://pypi.org/project/pydantic-logic">
         <img alt="PyPI version" src="https://img.shields.io/pypi/v/pydantic-logic.svg?logo=pypi&logoColor=FFE873">
     </a>
     <a href="https://github.com/psf/black">
